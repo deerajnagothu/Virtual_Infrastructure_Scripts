@@ -9,8 +9,9 @@ $scriptPath2 = Join-Path $executingScriptDirectory "common_functions.ps1"
 $ClonedVMPrefix=$win7_Name_Prefix
 $OriginVMName= $win7_Name_Prefix
 
-$InternetFacingMACPrefix="00:50:56:00:00:"
-$LocalFacingMACPrefix="00:50:56:01:01:"
+# Give the custom MAC address for the network adapter
+$InternetFacingMACPrefix=""
+$LocalFacingMACPrefix=""
 
 #------------------------------------------
 
@@ -77,9 +78,9 @@ ForEach ( $index in $indicies) {
     Yo "I think VM $new_vm has started as $started_vm"
     Wait-A-Min -Time 1
 
-    Change-Static-IP-Inside-VM -VM $started_vm -MACAddress (ExpandMAC -Prefix $LocalFacingMACPrefix -index $index) -NewIP "192.168.100.17"
-    Change-Static-IP-Inside-VM -VM $started_vm -MACAddress (ExpandMAC -Prefix $InternetFacingMACPrefix -index $index) -NewIP ("10.0."+$index+".2")
-    Change-Static-Gateway-Inside-VM -VM $started_vm -MACAddress (ExpandMAC -Prefix $InternetFacingMACPrefix -index $index) -GatewayIP ("10.0."+$index+".1")
+    Change-Static-IP-Inside-VM -VM $started_vm -MACAddress (ExpandMAC -Prefix $LocalFacingMACPrefix -index $index) -NewIP ""
+    Change-Static-IP-Inside-VM -VM $started_vm -MACAddress (ExpandMAC -Prefix $InternetFacingMACPrefix -index $index) -NewIP (""+$index+"")
+    Change-Static-Gateway-Inside-VM -VM $started_vm -MACAddress (ExpandMAC -Prefix $InternetFacingMACPrefix -index $index) -GatewayIP (""+$index+"")
     Change-Password-for-windows -VM $started_vm -user_password $index
     Wait-A-Min -Time 1
 

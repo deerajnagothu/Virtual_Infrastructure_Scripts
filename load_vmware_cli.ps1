@@ -8,4 +8,4 @@
 
 
 Load-PowerCLI
-Connect-VIServer -Server  wsvc.bgm.bu.int
+Connect-VIServer -Server  "xyz" # Use the server address

@@ -1,30 +1,32 @@
 ﻿
 #-----------------------Connection Constants
-$DatacenetrName="Watson School"
-$ClusterName="Andrey Sec Lab"
-$DatastoreFolderName="Sec Lab Data"
-$VMFolderName="Sec Lab VMs"
+$DatacenetrName=""
+$ClusterName=""
+$DatastoreFolderName=""
+$VMFolderName=""
 
 
 #-----------------------VApp and VM contants
-$SourceVappName="Lab12_Reference_Nexus"
+# Change the variable based on the VM names in the VApp
+$SourceVappName=""
 #$ContainerVAppName=$SourceVappName+"_container"
-$ContainerVAppName="Testing_Container"
-$ReferenceSnapshotName="Point_zero"
-$StudentVAppPrefix="STU"
-$ESX_Name_Prefix="ESXi_cns_lab"
-$VCenter_Name_Prefix="Vcenter_cns_lab"
-$N1KV_Name_Prefix="Nexus_cns_lab"
-$win7_Name_Prefix="Win7_cns_lab"
+$ContainerVAppName=""
+$ReferenceSnapshotName=""
+$StudentVAppPrefix=""
+$ESX_Name_Prefix=""
+$VCenter_Name_Prefix=""
+$N1KV_Name_Prefix=""
+$win7_Name_Prefix=""
 
 #-----------------------Network constants
-$StudentMainNetworkPrefix="stu_net_"       #these are main experimental studetn netwrorks connecting Windows, nexus, esx and vcenter 
-$StudentTaggedNetworkPrefix="stu_t_"     #these are tagged networks of main networks (tagged version of main netwrok for ESX)
-$StudentControlNetwork="windows"   #these are the networks between control windows and vyos
-$ReferenceNetworkPrefix="reference_1"
-$ReferenceTaggedNetworkPrefix="reference_1_trunk"
+# Use the networking port-profiles used for the above mentioned VM's
+$StudentMainNetworkPrefix=""       #these are main experimental studetn netwrorks connecting Windows, nexus, esx and vcenter 
+$StudentTaggedNetworkPrefix=""     #these are tagged networks of main networks (tagged version of main netwrok for ESX)
+$StudentControlNetwork=""   #these are the networks between control windows and vyos
+$ReferenceNetworkPrefix=""
+$ReferenceTaggedNetworkPrefix=""
 
-$OLD_InternetFacingNetworkName_Windows="VLAN76"
+$OLD_InternetFacingNetworkName_Windows=""
 $OLD_LocalFacingNetworkName_Windows=$ReferenceNetworkPrefix
 
 #-----------------------Number of items

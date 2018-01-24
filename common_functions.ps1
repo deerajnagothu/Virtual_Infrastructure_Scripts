@@ -131,7 +131,7 @@ function Change-Static-Gateway-Inside-VM
           [string]$MACAddress,
           [string]$GatewayIP,
           [string]$username="Administrator",
-          [string]$password="a siege retooled a bra")
+          [string]$password="") # Use the password for Administrator in Windows VM
     if (-Not $GatewayIP){
         Throw "ERROR: No Gateway IP Specified"
     }
@@ -161,7 +161,7 @@ function Change-Static-IP-Inside-VM
           [string]$NewIP,
           [string]$NewMask="255.255.255.0",
           [string]$username="Administrator",
-          [string]$password="a siege retooled a bra")
+          [string]$password="")
     
     if (-Not $NewIP){
         Throw "ERROR: No IP Specified"
@@ -205,7 +205,7 @@ function Change-Password-for-windows
     param([Object]$VM,
           [string]$user_password,
           [string]$username="Administrator",
-          [string]$password="a siege retooled a bra")
+          [string]$password="")
 
     if (-Not $user_password){
         Throw "ERROR: No Password Specified"
@@ -222,24 +222,3 @@ function Change-Password-for-windows
 
 }
 
-#Write-Host -ForegroundColor White "End of Common Functions!!!"
-#    +((get-wmiobject win32_useraccount)[1].caption.replace(“\”,”/”)))).SetPassword("
-
-#### move code
-#$counter=0
-#101..103 | foreach {
-#    $counter=$counter+1
-#    $selector=$counter%$vmhosts.Count
-#    $vmhost=$vmhosts[$selector]
-#    $vm_to_move=(Get-VM -Name $ClonedVMPrefix$_)
-#    if ($vm_to_move.VMHost -EQ $vmhost ) 
-#    {
-#        Write-Host "same host"
-#        }
-#    else{
-#        Write-Host "Moving $vm_to_move to different host $vmhost"
-#        Move-VM -VM $vm_to_move -Destination $vmhost
-#    }
-#}
-#
-#exit
